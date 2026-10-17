@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2efe7">
+  <meta name="description" content="Приватный покерный клуб для игроков из Узбекистана. Живые столы 24/7. Вход по приглашению через Telegram.">
+  <title>Играй. Побеждай. — Приватный покерный клуб</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1399310622039113');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1399310622039113&ev=PageView&noscript=1"
+    alt=""></noscript>
+  <!-- End Meta Pixel -->
+
+  <style>
+    :root {
+      --paper: #f2efe7;
+      --paper-deep: #e8e3d8;
+      --ink: #202821;
+      --muted: #74776d;
+      --green: #173d32;
+      --green-2: #285344;
+      --red: #e85b3e;
+      --line: rgba(32,40,33,.18);
+      --serif: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif;
+      --sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: var(--sans); -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .page-shell { min-height: 100svh; overflow: hidden; }
+    .topbar {
+      width: min(1320px, calc(100% - 64px)); margin: 0 auto;
+      min-height: 84px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid var(--line);
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark {
+      width: 34px; height: 34px; display: grid; place-items: center;
+      border: 1px solid var(--green); color: var(--green); font-family: var(--serif);
+      font-size: 22px; transform: rotate(-5deg);
+    }
+    .brand-name { font-size: 11px; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
+    .top-note { color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .top-link {
+      text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: .04em;
+      border-bottom: 1px solid var(--green); padding: 8px 0;
+    }
+
+    .hero {
+      width: min(1320px, calc(100% - 64px)); margin: 0 auto;
+      display: grid; grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+      min-height: 690px; align-items: center; gap: clamp(28px, 5vw, 88px);
+      padding: 58px 0 72px;
+    }
+    .hero-copy { position: relative; z-index: 2; padding: 14px 0 20px; }
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 30px;
+      font-size: 10px; letter-spacing: .19em; text-transform: uppercase; font-weight: 750;
+      color: var(--green);
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--red); }
+    h1 {
+      margin: 0; max-width: 660px; font-family: var(--serif); font-weight: 500;
+      font-size: clamp(58px, 7.3vw, 104px); line-height: .88; letter-spacing: -.065em;
+    }
+    h1 span { display: block; }
+    h1 .second { color: var(--green); font-style: italic; margin-top: 9px; }
+    .hero-sub {
+      margin: 31px 0 0; max-width: 440px; font-size: clamp(16px, 1.35vw, 19px);
+      line-height: 1.55; color: #50574e; letter-spacing: -.018em;
+    }
+    .hero-sub strong { color: var(--ink); font-weight: 750; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 34px; }
+    .cta {
+      min-height: 58px; padding: 0 25px; display: inline-flex; align-items: center;
+      justify-content: center; gap: 18px; background: var(--green); color: #f7f4ec;
+      text-decoration: none; text-transform: uppercase; letter-spacing: .095em;
+      font-size: 11px; font-weight: 800; border: 1px solid var(--green);
+      transition: background .2s ease, transform .2s ease;
+    }
+    .cta:hover { background: var(--green-2); transform: translateY(-2px); }
+    .cta .arrow { color: #f18b6e; font-size: 18px; line-height: 1; }
+    .microcopy { max-width: 150px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+
+    /* Art-directed physical still-life: an architectural card sculpture, drawn without stock imagery. */
+    .art-stage {
+      position: relative; min-height: 555px; isolation: isolate;
+      background: var(--green); overflow: hidden; display: grid; place-items: center;
+      box-shadow: 0 28px 70px rgba(30,45,36,.12);
+    }
+    .art-stage::before {
+      content: ""; position: absolute; inset: 0; z-index: -2;
+      background:
+        linear-gradient(116deg, rgba(255,255,255,.055), transparent 42%),
+        radial-gradient(ellipse at 75% 22%, rgba(255,255,255,.11), transparent 42%),
+        #173d32;
+    }
+    .stage-grid {
+      position: absolute; inset: 0; opacity: .17; z-index: -1;
+      background-image: linear-gradient(rgba(242,239,231,.18) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(242,239,231,.18) 1px, transparent 1px);
+      background-size: 74px 74px;
+      mask-image: linear-gradient(135deg, black, transparent 80%);
+    }
+    .stage-label {
+      position: absolute; top: 25px; left: 27px; right: 27px;
+      display: flex; justify-content: space-between; align-items: center;
+      color: rgba(242,239,231,.68); font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+    }
+    .stage-index { position: absolute; bottom: 25px; left: 27px; color: rgba(242,239,231,.68); font-size: 10px; letter-spacing: .12em; }
+    .stage-caption { position: absolute; bottom: 25px; right: 27px; color: #f2efe7; font-family: var(--serif); font-style: italic; font-size: 16px; }
+
+    .object-scene { position: relative; width: 100%; height: 455px; max-width: 600px; }
+    .platform {
+      position: absolute; width: 77%; height: 42%; left: 12%; bottom: 12%;
+      background: linear-gradient(145deg, #2b5a49, #102e26);
+      transform: skewY(-11deg) rotate(-2deg);
+      box-shadow: 22px 30px 0 rgba(5,20,15,.18), 0 36px 50px rgba(0,0,0,.25);
+      border: 1px solid rgba(242,239,231,.18);
+    }
+    .platform::after {
+      content: ""; position: absolute; inset: 12px; border: 1px solid rgba(242,239,231,.12);
+    }
+    .card {
+      position: absolute; width: 42%; height: 61%; left: 31%; top: 11%;
+      background: linear-gradient(135deg, #faf7ef, #e9e1d2);
+      border-radius: 3px; transform: rotate(9deg) skewY(-2deg);
+      box-shadow: 22px 28px 0 rgba(5,19,14,.18), 0 30px 42px rgba(0,0,0,.3);
+      color: #1d2722; padding: 17px 15px; border: 1px solid rgba(40,40,30,.12);
+    }
+    .card::before {
+      content: ""; position: absolute; inset: 7px; border: 1px solid rgba(32,40,33,.11);
+    }
+    .card-corner { position: absolute; top: 15px; left: 17px; font-family: var(--serif); font-size: 24px; line-height: .85; }
+    .card-corner small { display: block; font-family: var(--serif); font-size: 18px; margin-top: 3px; }
+    .spade {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      font-family: Georgia, serif; font-size: clamp(82px, 11vw, 145px);
+      color: #1b2922; transform: translateY(4px);
+    }
+    .card-bottom { position: absolute; right: 16px; bottom: 14px; font-family: var(--serif); font-size: 22px; transform: rotate(180deg); }
+    .chip {
+      position: absolute; width: 93px; height: 93px; border-radius: 50%;
+      background: repeating-conic-gradient(from 2deg, #e85b3e 0 10deg, #f7eee1 10deg 15deg, #e85b3e 15deg 25deg);
+      box-shadow: 12px 16px 0 rgba(7,22,16,.22), 0 18px 27px rgba(0,0,0,.24);
+      display: grid; place-items: center;
+    }
+    .chip::before {
+      content: ""; position: absolute; inset: 13px; border-radius: 50%;
+      background: #e85b3e; border: 1px solid rgba(247,238,225,.6);
+      box-shadow: inset 0 0 0 5px rgba(247,238,225,.08);
+    }
+    .chip::after {
+      content: "♠"; position: relative; z-index: 1; color: #f7eee1;
+      font-family: Georgia, serif; font-size: 31px;
+    }
+    .chip-a { left: 11%; bottom: 19%; transform: rotate(-16deg) scale(.9); }
+    .chip-b { right: 10%; bottom: 16%; transform: rotate(13deg) scale(.72); }
+    .chip-c { right: 13%; top: 15%; transform: rotate(21deg) scale(.48); }
+    .light-slice {
+      position: absolute; width: 180%; height: 1px; left: -30%; top: 53%;
+      background: rgba(242,239,231,.27); transform: rotate(-27deg);
+      box-shadow: 0 0 32px rgba(242,239,231,.1);
+    }
+
+    .proof {
+      background: var(--paper-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    }
+    .proof-inner {
+      width: min(1320px, calc(100% - 64px)); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+    }
+    .proof-item { padding: 28px 28px 31px 0; display: flex; gap: 15px; align-items: flex-start; }
+    .proof-item + .proof-item { border-left: 1px solid var(--line); padding-left: 28px; }
+    .proof-num { color: var(--red); font-family: var(--serif); font-size: 19px; font-style: italic; }
+    .proof-item h2 { margin: 2px 0 6px; font-size: 13px; line-height: 1.3; letter-spacing: -.015em; }
+    .proof-item p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+
+    .closing {
+      width: min(1320px, calc(100% - 64px)); margin: 0 auto;
+      padding: 68px 0 72px; display: flex; justify-content: space-between; align-items: end; gap: 32px;
+    }
+    .closing-kicker { color: var(--red); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+    .closing h2 { margin: 13px 0 0; max-width: 700px; font-family: var(--serif); font-size: clamp(35px, 5vw, 62px); font-weight: 500; line-height: .98; letter-spacing: -.05em; }
+    .closing h2 em { color: var(--green); font-weight: 500; }
+    .closing-right { min-width: 220px; }
+    .closing-right .cta { width: 100%; }
+    .closing-note { color: var(--muted); font-size: 10px; line-height: 1.55; margin: 12px 0 0; }
+    footer {
+      border-top: 1px solid var(--line); width: min(1320px, calc(100% - 64px)); margin: 0 auto;
+      padding: 19px 0 25px; display: flex; justify-content: space-between; gap: 20px;
+      color: var(--muted); font-size: 10px; line-height: 1.5;
+    }
+    footer span:last-child { text-align: right; }
+
+    @media (min-width: 1400px) { .hero { min-height: 760px; } .art-stage { min-height: 610px; } }
+    @media (max-width: 900px) {
+      .topbar, .hero, .proof-inner, .closing, footer { width: min(100% - 40px, 650px); }
+      .hero { grid-template-columns: 1fr; gap: 42px; padding: 52px 0 48px; }
+      .hero-copy { padding: 0; }
+      h1 { font-size: clamp(65px, 13vw, 96px); }
+      .art-stage { min-height: 510px; }
+      .object-scene { height: 430px; }
+      .proof-inner { grid-template-columns: 1fr; }
+      .proof-item, .proof-item + .proof-item { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+      .proof-item:last-child { border-bottom: 0; }
+      .closing { align-items: flex-start; flex-direction: column; padding: 54px 0; }
+      .closing-right { width: 100%; max-width: 380px; }
+    }
+    @media (max-width: 520px) {
+      .topbar { min-height: 70px; }
+      .top-note { display: none; }
+      .brand-name { font-size: 10px; letter-spacing: .12em; }
+      .top-link { font-size: 10px; }
+      .hero { padding-top: 43px; gap: 35px; }
+      .eyebrow { margin-bottom: 24px; font-size: 9px; }
+      h1 { font-size: clamp(55px, 15vw, 76px); }
+      .hero-sub { font-size: 16px; margin-top: 25px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 12px; margin-top: 27px; }
+      .cta { width: 100%; justify-content: space-between; min-height: 57px; }
+      .microcopy { max-width: none; }
+      .art-stage { min-height: 410px; }
+      .object-scene { height: 360px; transform: scale(.93); }
+      .card { width: 45%; height: 62%; left: 29%; top: 12%; }
+      .spade { font-size: 104px; }
+      .chip { width: 77px; height: 77px; }
+      .chip-a { left: 7%; bottom: 17%; }
+      .chip-b { right: 7%; bottom: 15%; }
+      .chip-c { right: 9%; top: 15%; }
+      .stage-label { top: 18px; left: 18px; right: 18px; font-size: 8px; }
+      .stage-index { left: 18px; bottom: 18px; }
+      .stage-caption { right: 18px; bottom: 18px; font-size: 14px; }
+      .closing h2 { font-size: 42px; }
+      footer { flex-direction: column; }
+      footer span:last-child { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .cta { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Приватный покерный клуб">
+        <span class="brand-mark">♠</span>
+        <span class="brand-name">Private Poker Club</span>
+      </a>
+      <span class="top-note">Узбекистан · Только по приглашению</span>
+      <a class="top-link" href="https://t.me/+K7rSM6HfE6I5MzUy" data-telegram-cta>Доступ в клуб ↗</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Приватный клуб · Онлайн 24/7</div>
+          <h1><span>Играй.</span><span class="second">Побеждай.</span></h1>
+          <p class="hero-sub"><strong>Стань чемпионом.</strong><br>Приватный клуб для игроков из Узбекистана. <strong>Живые столы 24/7</strong>, честная раздача и вход по приглашению — через Telegram, за пять секунд.</p>
+          <div class="hero-actions">
+            <a class="cta" href="https://t.me/+K7rSM6HfE6I5MzUy" data-telegram-cta>
+              <span>Войти через Telegram</span><span class="arrow">↗</span>
+            </a>
+            <div class="microcopy">Приглашение — ваш первый ход. Подключайтесь за несколько секунд.</div>
+          </div>
+        </div>
+
+        <div class="art-stage" role="img" aria-label="Художественная предметная композиция: туз пик и красно-оранжевые покерные фишки на архитектурной зелёной плоскости">
+          <div class="stage-grid"></div>
+          <div class="stage-label"><span>Private table / 01</span><span>UZB · 24/7</span></div>
+          <div class="object-scene" aria-hidden="true">
+            <div class="light-slice"></div>
+            <div class="platform"></div>
+            <div class="card">
+              <div class="card-corner">A<small>♠</small></div>
+              <div class="spade">♠</div>
+              <div class="card-bottom">A ♠</div>
+            </div>
+            <div class="chip chip-a"></div>
+            <div class="chip chip-b"></div>
+            <div class="chip chip-c"></div>
+          </div>
+          <div class="stage-index">01 — THE PRIVATE TABLE</div>
+          <div class="stage-caption">Твой ход.</div>
+        </div>
+      </section>
+
+      <section class="proof" aria-label="Особенности клуба">
+        <div class="proof-inner">
+          <article class="proof-item">
+            <span class="proof-num">01</span>
+            <div><h2>Живые столы 24/7</h2><p>Игра доступна в любое время — выбирайте свой момент.</p></div>
+          </article>
+          <article class="proof-item">
+            <span class="proof-num">02</span>
+            <div><h2>Честная раздача</h2><p>Фокус на самой игре и понятном игровом опыте.</p></div>
+          </article>
+          <article class="proof-item">
+            <span class="proof-num">03</span>
+            <div><h2>Вход по приглашению</h2><p>Переход в приватный клуб напрямую через Telegram.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div>
+          <div class="closing-kicker">Ваш следующий ход</div>
+          <h2>Стол открыт.<br><em>Решение за тобой.</em></h2>
+        </div>
+        <div class="closing-right">
+          <a class="cta" href="https://t.me/+K7rSM6HfE6I5MzUy" data-telegram-cta>
+            <span>Войти через Telegram</span><span class="arrow">↗</span>
+          </a>
+          <p class="closing-note">Нажмите, чтобы открыть приглашение в Telegram и перейти к следующему шагу.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>PRIVATE POKER CLUB · UZBEKISTAN</span>
+      <span>Играйте ответственно. Участие доступно только лицам, достигшим установленного законом возраста.</span>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('[data-telegram-cta]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Contact', { content_name: 'Telegram Club Invitation' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
